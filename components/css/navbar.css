@@ -29,7 +29,7 @@
 .logo {
   width: calc(var(--w100px) * 2.5);
   height: calc(var(--w100px) - 20px);
-  padding-top: var(--point7rem);
+  /*padding-top: var(--point7rem);*/
 }
 .fia {
   width: var(--w100px);

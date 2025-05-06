@@ -56,7 +56,7 @@ heroData.value = data.value;
 <template>
   <div class="site-wrapper mb-2">
     <br />
-    <div class="top-hero">
+    <div class="top-hero loggedin">
       <herocursa v-if="heroData" :heroData="heroData" :smallText="smallText" />
     </div>
     <div class="stiri-grid">

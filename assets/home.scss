@@ -16,8 +16,16 @@
     }
   }
 }
+//.top-hero {
+//  height: 90vh;
+//}
 .top-hero {
-  height: 90vh;
+  height: 30vh;
+}
+@media (max-width: 900px) {
+  .top-hero {
+    height: 20vh;
+  }
 }
 .photo {
   width: 100%;
