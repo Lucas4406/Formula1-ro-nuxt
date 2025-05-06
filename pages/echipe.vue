@@ -7,7 +7,11 @@ const echipe = ref([]);
 const puncteNull = ref(false);
 
 // Fetch data with Nuxt's built-in useFetch
-const { data: teamsData } = await useFetch(() => `${useRuntimeConfig().public.apiBaseUrl}/mongo/teams/all`);
+const { data: teamsData } = await useFetch(() => `${useRuntimeConfig().public.apiBaseUrl}/mongo/teams/all` , {
+  server: true,
+  lazy: false,
+  key: 'teams-fetch'
+});
 
 // Process the fetched data
 if (teamsData.value) {

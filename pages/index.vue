@@ -16,6 +16,8 @@ useHead({
 
 // Fetch race data on server side
 const { data, error } = await useFetch(() => `${useRuntimeConfig().public.apiBaseUrl}/get-next`, {
+  server: true,
+  lazy: false,
   transform: (data) => {
     if (!data) return null;
 

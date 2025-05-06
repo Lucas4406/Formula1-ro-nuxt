@@ -188,7 +188,10 @@ const name = ref('');
 const idCurent = ref(0);
 
 // Fetch data on server-side (SSR)
-const { data: nextRace } = await useFetch(`${useRuntimeConfig().public.apiBaseUrl}/get-next`);
+const { data: nextRace } = await useFetch(`${useRuntimeConfig().public.apiBaseUrl}/get-next` , {
+  server: true,
+  lazy: false,
+});
 const cursaActuala = nextRace.value.nr_runda;
 
 useHead({
@@ -196,7 +199,10 @@ useHead({
 })
 
 // Fetch F1 race data
-const { data: raceData } = await useFetch('https://api.jolpi.ca/ergast/f1/2025/races.json?limit=100');
+const { data: raceData } = await useFetch('https://api.jolpi.ca/ergast/f1/2025/races.json?limit=100' , {
+  server: true,
+  lazy: false,
+});
 if (raceData.value) {
   curse.value = raceData.value.MRData.RaceTable.Races;
 
