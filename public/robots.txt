@@ -1,2 +1,8 @@
-User-Agent: *
-Disallow:
+User-agent: *
+Allow: /
+Sitemap: https://www.beta.formula1-ro.tech/sitemap.xml
+Disallow: /admin
+Disallow: /updateteams
+Disallow: /updateprofile
+Disallow: /test
+Disallow: /href
