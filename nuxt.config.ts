@@ -27,15 +27,6 @@ export default defineNuxtConfig({
       VITE_CORS: process.env.VITE_CORS,
     }
   },
-  // nitro: {
-  //   prerender: {
-  //     routes: ['/clasament-piloti'],
-  //     interval: 3600 // Seconds
-  //   }
-  // },
-  generate: {
-    routes: ['/istorie'],  // Aici poți lista rutele care trebuie să fie statice
-  },
   app: {
     head: {
       charset: 'UTF-8',
