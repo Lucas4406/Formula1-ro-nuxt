@@ -8,7 +8,7 @@ const smallText = ref("");
 
 // Set page title and metadata
 useHead({
-  title: 'Formula1-ro | Acasa',
+  title: 'Formula1-ro | Date din Formula 1 actualizate regulat',
   meta: [
     { name: 'description', content: 'Formula 1 România - informații despre următoarea cursă și știri recente' }
   ]

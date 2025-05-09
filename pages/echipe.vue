@@ -45,8 +45,12 @@ if (teamsData.value) {
         content: `Clasamentul echipelor actuale din sezonul ${year} de Formula 1.`
       }
     ]
-  });
+  })
 }
+
+const preferinteUser = usePreferintePilot()
+
+console.log(preferinteUser.preferinte)
 </script>
 
 <template>

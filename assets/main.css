@@ -56,3 +56,8 @@ a {
 html{
   font-family: Roboto, sans-serif;
 }
+
+*, ::before, ::after {
+  border: none;
+  box-sizing: inherit;
+}
