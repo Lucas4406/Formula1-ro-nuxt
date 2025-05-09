@@ -1,6 +1,8 @@
 <script setup lang="js">
 import { onMounted } from 'vue'
-onMounted(() => {
+const user = useSupabaseUser()
+const isLoggedIn = computed(() => !!user.value)
+onMounted( () => {
   // Dropdown logic
   document.addEventListener("click", (e) => {
     const isDropdownButton = e.target.matches("[data-dropdown-button]")
@@ -35,6 +37,9 @@ onMounted(() => {
         <Nuxt-link to="/" class="link-router"
         ><img src="./icons/ferrari.avif" class="logo-f1" alt="logo site F1"
         /></Nuxt-link>
+<!--        <div class="fia peste" v-if="isLoggedIn" v-once>-->
+<!--          <profileBadge />-->
+<!--        </div>-->
       </div>
     </div>
     <div class="bar">
@@ -81,6 +86,7 @@ onMounted(() => {
           >Istorie</Nuxt-link
           >
           <Nuxt-link
+              v-if=!isLoggedIn
               to="/login"
               class="text-dropdown-right"
           >Login</Nuxt-link

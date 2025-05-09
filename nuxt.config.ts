@@ -2,7 +2,16 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   ssr: true,
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxt/fonts', '@pinia/nuxt'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxt/fonts', '@pinia/nuxt', '@nuxtjs/supabase' , 'nuxt-headlessui'],
+  supabase: {
+    url: process.env.SUPABASE_URL,
+    key: process.env.SUPABASE_KEY,
+    redirectOptions: {
+      login: '/',
+      callback: '/confirm',
+      exclude: ['/*'],
+    },
+  },
   runtimeConfig: {
     public: {
       apiBaseUrl: process.env.VITE_API_LINK,

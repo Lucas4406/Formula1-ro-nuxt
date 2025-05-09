@@ -47,6 +47,7 @@
   justify-content: space-between;
   transform: translateY(0);
   transition: transform 150ms ease-in-out;
+  position: relative;
 }
 .header {
   position: fixed;
@@ -154,4 +155,10 @@
 }
 .router-link-exact-active {
   opacity: 0.8;
+}
+.peste {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 999;
 }
