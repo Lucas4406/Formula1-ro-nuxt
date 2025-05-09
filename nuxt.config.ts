@@ -24,6 +24,9 @@ export default defineNuxtConfig({
   //     interval: 3600 // Seconds
   //   }
   // },
+  generate: {
+    routes: ['/istorie'],  // Aici poți lista rutele care trebuie să fie statice
+  },
   app: {
     head: {
       title: 'Formula1-ro-nuxt | Date despre Formula 1 precum calificari, curse, piloti, echipe',
