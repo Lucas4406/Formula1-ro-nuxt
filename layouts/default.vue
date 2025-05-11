@@ -1,5 +1,15 @@
-<script setup lang="ts">
+<script setup>
 provideHeadlessUseId(() => useId())
+import { usePreferintePilot } from '~/stores/preferinteUser'
+
+const user = useSupabaseUser()
+const store = usePreferintePilot()
+
+watchEffect(() => {
+  if (user.value?.id) {
+    store.fetchUserData(user.value.id)
+  }
+})
 </script>
 
 <template>

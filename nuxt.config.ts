@@ -3,6 +3,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   ssr: true,
   modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxt/fonts', '@pinia/nuxt', '@nuxtjs/supabase' , 'nuxt-headlessui'],
+  css: ['@/assets/tailwind.css'],
+  tailwindcss: {
+    configPath: 'tailwind.config.ts',
+    viewer: false
+  },
   supabase: {
     url: process.env.SUPABASE_URL,
     key: process.env.SUPABASE_KEY,

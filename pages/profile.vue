@@ -75,9 +75,8 @@ definePageMeta({
   middleware: 'auth'
 })
 import { ref, onMounted } from 'vue'
-// import ConstructorCard from '~/components/ConstructorCard.vue'
-// import PilotCard from '~/components/PilotCard.vue'
-
+import { usePreferintePilot } from '~/stores/preferinteUser'
+const profileStore = usePreferintePilot()
 const supabase = useSupabaseClient()
 const user = useSupabaseUser()
 
@@ -141,7 +140,9 @@ async function updateDb() {
         favDriver: soferPref.value,
       },
     });
-    window.location.reload();
+    await getFavDriver()
+    await favoriteTeam()
+    // window.location.reload();
   } catch (error) {
     console.error("Eroare la actualizarea profilului:", error);
   }
