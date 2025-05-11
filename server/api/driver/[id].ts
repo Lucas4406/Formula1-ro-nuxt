@@ -40,7 +40,7 @@ export default defineEventHandler(async (event) => {
         // Step 4: Get driver info from MongoDB
         const config = useRuntimeConfig()
 
-        const driversMongoData = await makeRequest(`/api/proxy/mongo/piloti?order=asc`)
+        const driversMongoData = await makeRequest(`${config.public.apiBaseUrl}/mongo/piloti?order=asc`)
 
         let driverInfo = null
         for (const driver of driversMongoData) {
