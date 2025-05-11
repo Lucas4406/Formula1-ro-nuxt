@@ -4,7 +4,9 @@ import { ref } from 'vue';
 
 // State management
 const echipe = ref([]);
+const ok = ref("")
 const puncteNull = ref(false);
+const user = useSupabaseUser()
 
 // Fetch data with Nuxt's built-in useFetch
 const { data: teamsData } = await useFetch(() => `${useRuntimeConfig().public.apiBaseUrl}/mongo/teams/all` , {
@@ -12,7 +14,11 @@ const { data: teamsData } = await useFetch(() => `${useRuntimeConfig().public.ap
   lazy: false,
   key: 'teams-fetch'
 });
-
+let favourite_team
+if(user.value){
+  const {data: ProfileData} = await useFetch(() => `${useRuntimeConfig().public.apiBaseUrl}/profile/${user.value.id}`, {server: true, lazy: false} )
+  favourite_team = ProfileData.value[0].favTeam
+}
 // Process the fetched data
 if (teamsData.value) {
   echipe.value = teamsData.value;
@@ -22,6 +28,14 @@ if (teamsData.value) {
     if (echipe.value[i].nrpuncte === null) {
       puncteNull.value = true;
       break;
+    }
+  }
+  if (favourite_team != null) {
+    let fav = favourite_team
+    for (let i = 0; i < teamsData.value.length; i++) {
+      if (teamsData.value[i].name === fav) {
+        ok.value = i
+      }
     }
   }
 
@@ -58,8 +72,9 @@ console.log(preferinteUser.preferinte)
     <div
         class="box"
         :class="[
-        echipa.name.replace(/\s+/g, '')
-      ]"
+        echipa.name.replace(/\s+/g, ''),
+        { echipaFavorita: ok === index },
+      ] "
         v-for="(echipa, index) in echipe"
         :key="index"
     >
@@ -68,9 +83,9 @@ console.log(preferinteUser.preferinte)
           <div class="">
             {{ echipa.pozitie }}
           </div>
-<!--          <div class="flex Favcontainer">-->
-<!--            <img src="/Favico.svg" class="w-6 h-6 pozaFav" alt="Icon echipă favorită" />-->
-<!--          </div>-->
+          <div class="flex Favcontainer">
+            <img src="/Favico.svg" class="w-6 h-6 pozaFav" alt="Icon echipă favorită" />
+          </div>
         </div>
         <div class="numee">
           {{ echipa.name }}

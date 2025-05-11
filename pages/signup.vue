@@ -33,7 +33,7 @@ async function register() {
     }
   })
 
-  navigateTo('/updateprofile')
+  navigateTo('/confirm')
 }
 </script>
 

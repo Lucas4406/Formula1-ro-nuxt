@@ -27,7 +27,8 @@ const deleteUser = async () => {
     await $fetch(`${config.public.apiBaseUrl}/profile/delete/${props.profileInfo._id}`, {
       method: 'DELETE'
     })
-    window.location.href = "/admin"
+    await $fetch(`/api/delete-user/${props.profileInfo.profileId}`)
+    window.location.reload()
   } catch (err) {
     console.error('Delete error:', err)
   }

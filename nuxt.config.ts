@@ -15,20 +15,19 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiBaseUrl: process.env.VITE_API_LINK,
-      VITE_API_KEY: process.env.VITE_API_KEY,
-      VITE_AUTH_DOMAIN: process.env.VITE_AUTH_DOMAIN,
-      VITE_PROJECT_ID: process.env.VITE_PROJECT_ID,
-      VITE_STORAGE_BUCKET: process.env.VITE_STORAGE_BUCKET,
-      VITE_MESSAGE: process.env.VITE_MESSAGE,
-      VITE_APP_ID: process.env.VITE_APP_ID,
-      VITE_MEASURE_ID: process.env.VITE_MEASURE_ID,
       VITE_ADMIN_UID: process.env.VITE_ADMIN_UID,
       VITE_CRYPTO_KEY: process.env.VITE_CRYPTO_KEY,
       VITE_CORS: process.env.VITE_CORS,
-    }
+    },
+    supabase: {
+      serviceRole: process.env.SUPABASE_SERVICE_ROLE_KEY,
+    },
   },
   app: {
     head: {
+      htmlAttrs: {
+        lang: 'ro'
+      },
       charset: 'UTF-8',
       title: 'Formula1-ro-nuxt | Date despre Formula 1 precum calificari, curse, piloti, echipe',
       meta: [
