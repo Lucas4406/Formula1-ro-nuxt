@@ -5,4 +5,6 @@ Disallow: /admin
 Disallow: /updateteams
 Disallow: /updateprofile
 Disallow: /test
+Disallow: /update-password
+Disallow: /confirm
 Disallow: /href
