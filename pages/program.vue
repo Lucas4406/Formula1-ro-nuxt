@@ -188,7 +188,7 @@ const name = ref('');
 const idCurent = ref(0);
 
 // Fetch data on server-side (SSR)
-const { data: nextRace } = await useFetch(`${useRuntimeConfig().public.apiBaseUrl}/get-next` , {
+const { data: nextRace } = await useFetch("/api/proxy/get-next" , {
   server: true,
   lazy: false,
 });

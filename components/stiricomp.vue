@@ -46,7 +46,7 @@ const show = ref(false)
 const cachedNews = useState('news-cache', () => null)
 
 if (!cachedNews.value) {
-  const { data: newsData } = await useFetch(`${useRuntimeConfig().public.apiBaseUrl}/mongo/stiri/6` , {
+  const { data: newsData } = await useFetch("/api/proxy/mongo/stiri/6" , {
     server: true,
     lazy: false,
   })

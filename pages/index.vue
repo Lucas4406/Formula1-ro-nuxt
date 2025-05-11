@@ -15,7 +15,7 @@ useHead({
 });
 
 // Fetch race data on server side
-const { data, error } = await useFetch(() => `${useRuntimeConfig().public.apiBaseUrl}/get-next`, {
+const { data, error } = await useFetch(() => "/api/proxy/get-next", {
   server: true,
   lazy: false,
   transform: (data) => {
