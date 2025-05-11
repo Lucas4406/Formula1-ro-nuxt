@@ -36,11 +36,11 @@ const config = useRuntimeConfig()
 const profiles = ref([])
 const curseCount = ref(0)
 
-const clasamentPilotiLink = `${config.public.apiBaseUrl}/clasament-piloti`
-const echipeLink = `${config.public.apiBaseUrl}/echipe`
-const stiriTranslateLink = `${config.public.apiBaseUrl}/stiri-translate`
+const clasamentPilotiLink = `/api/proxy/clasament-piloti`
+const echipeLink = `/api/proxy/echipe`
+const stiriTranslateLink = `/api/proxy/stiri-translate`
 
-const { data, error } = await useFetch(`${config.public.apiBaseUrl}/profile`)
+const { data, error } = await useFetch(`/api/proxy/profile`)
 profiles.value = data.value
 </script>
 

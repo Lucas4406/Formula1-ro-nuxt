@@ -39,9 +39,8 @@ export default defineEventHandler(async (event) => {
 
         // Step 4: Get driver info from MongoDB
         const config = useRuntimeConfig()
-        const apiLink = config.public.apiBaseUrl|| process.env.NUXT_VITE_API_LINK
 
-        const driversMongoData = await makeRequest(`${apiLink}/mongo/piloti?order=asc`)
+        const driversMongoData = await makeRequest(`/api/proxy/mongo/piloti?order=asc`)
 
         let driverInfo = null
         for (const driver of driversMongoData) {

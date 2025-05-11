@@ -73,12 +73,12 @@ const photo = ref('')
 const tara = ref('')
 
 async function getDbData(id) {
-  const  data  = await $fetch(`${useRuntimeConfig().public.apiBaseUrl}/profile/${id}`)
+  const  data  = await $fetch(`/api/proxy/profile/${id}`)
   return data[0]
 }
 
 async function updateDb(id) {
-  await $fetch(`${useRuntimeConfig().public.apiBaseUrl}/profile/change/${id}`, {
+  await $fetch(`/api/proxy/profile/change/${id}`, {
     method: 'POST',
     body: {
       firstName: primul.value,

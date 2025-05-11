@@ -24,7 +24,7 @@ const deleteUser = async () => {
   try {
     const confirmDelete = confirm('Ești sigur că vrei să ștergi acest utilizator?')
     if (!confirmDelete) return
-    await $fetch(`${config.public.apiBaseUrl}/profile/delete/${props.profileInfo._id}`, {
+    await $fetch(`/api/proxy/profile/delete/${props.profileInfo._id}`, {
       method: 'DELETE'
     })
     await $fetch(`/api/delete-user/${props.profileInfo.profileId}`)
@@ -36,7 +36,7 @@ const deleteUser = async () => {
 
 const changeRole = async (role) => {
   try {
-    await $fetch(`${config.public.apiBaseUrl}/profile/${props.profileInfo._id}/role`, {
+    await $fetch(`/api/proxy/profile/${props.profileInfo._id}/role`, {
       method: 'PUT',
       body: { role }
     })

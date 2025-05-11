@@ -54,7 +54,7 @@ const dontShow = ref(false)
 const config = useRuntimeConfig()
 
 // Use Nuxt 3 data fetching with useFetch
-const { data: driversData, error } = await useFetch(`${useRuntimeConfig().public.apiBaseUrl}/mongo/piloti?order=asc`, {
+const { data: driversData, error } = await useFetch(`/api/proxy/mongo/piloti?order=asc`, {
   // Use server-side fetching for SSR
   server: true,
   // Transform the data

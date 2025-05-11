@@ -6,7 +6,7 @@ const profilePic = ref(false)
 
 // Funcție pentru a lua datele din API
 async function getDbData(id) {
-  const  data  = await $fetch(`${useRuntimeConfig().public.apiBaseUrl}/profile/${id}`)
+  const  data  = await $fetch(`/api/proxy/profile/${id}`)
   return data[0]
 }
 

@@ -9,14 +9,14 @@ const puncteNull = ref(false);
 const user = useSupabaseUser()
 
 // Fetch data with Nuxt's built-in useFetch
-const { data: teamsData } = await useFetch(() => `${useRuntimeConfig().public.apiBaseUrl}/mongo/teams/all` , {
+const { data: teamsData } = await useFetch(() => `/api/proxy/mongo/teams/all` , {
   server: true,
   lazy: false,
   key: 'teams-fetch'
 });
 let favourite_team
 if(user.value){
-  const {data: ProfileData} = await useFetch(() => `${useRuntimeConfig().public.apiBaseUrl}/profile/${user.value.id}`, {server: true, lazy: false} )
+  const {data: ProfileData} = await useFetch(() => `/api/proxy/profile/${user.value.id}`, {server: true, lazy: false} )
   favourite_team = ProfileData.value[0].favTeam
 }
 // Process the fetched data

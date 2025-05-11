@@ -99,7 +99,7 @@ const getData = async () => {
 // Funcția pentru a obține runda curentă pentru 2025
 const getCurrentRound = async () => {
   try {
-    const { data, error } = await useFetch(`${useRuntimeConfig().public.apiBaseUrl}/get-next`)
+    const { data, error } = await useFetch("/api/proxy/get-next")
     if (error.value) {
       console.error("Eroare la getCurrentRound:", error.value)
       return 0

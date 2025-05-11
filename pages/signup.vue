@@ -24,7 +24,7 @@ async function register() {
   }
 
   // Apelează API-ul tău pentru a salva profilul (ca în Firebase)
-  await $fetch(`${useRuntimeConfig().public.apiBaseUrl}/profile`, {
+  await $fetch(`/api/proxy/profile`, {
     method: 'POST',
     body: {
       email: data.user.email,

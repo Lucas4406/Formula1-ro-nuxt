@@ -99,19 +99,19 @@ async function logout() {
 }
 
 async function getProfile() {
-  const  data  = await $fetch(`${useRuntimeConfig().public.apiBaseUrl}/profile/${user.value.id}`)
+  const  data  = await $fetch(`/api/proxy/profile/${user.value.id}`)
     userData.value = data[0]
     echipaPref.value = data[0].favTeam
     soferPref.value = data[0].favDriver
 }
 
 async function getDataFull() {
-  const teams = await $fetch(`${useRuntimeConfig().public.apiBaseUrl}/mongo/teams/all`)
+  const teams = await $fetch(`/api/proxy/mongo/teams/all`)
   echipeArray.value = teams.map(t => t.name)
 }
 
 async function getAllDrivers() {
-  const piloti = await $fetch(`${useRuntimeConfig().public.apiBaseUrl}/mongo/piloti?order=asc`)
+  const piloti = await $fetch(`/api/proxy/mongo/piloti?order=asc`)
   soferiArray.value = piloti.map(p => `${p.primulNume} ${p.alDoileaNume}`)
 }
 
@@ -127,14 +127,14 @@ async function favoriteTeam() {
 }
 
 async function getFavDriver() {
-  const data = await $fetch(`${useRuntimeConfig().public.apiBaseUrl}/mongo/piloti/${soferPref.value}`)
+  const data = await $fetch(`/api/proxy/mongo/piloti/${soferPref.value}`)
   favDriv.value = data[0]
   driverOk.value = true
 }
 
 async function updateDb() {
   try {
-    await $fetch(`${useRuntimeConfig().public.apiBaseUrl}/profile/change/team/${user.value.id}`, {
+    await $fetch(`/api/proxy/profile/change/team/${user.value.id}`, {
       method: "POST",
       body: {
         favTeam: echipaPref.value,
