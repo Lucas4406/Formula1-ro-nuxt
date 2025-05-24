@@ -192,7 +192,7 @@ const { data: nextRace } = await useFetch("/api/proxy/get-next" , {
   server: true,
   lazy: false,
 });
-const cursaActuala = nextRace.value.nr_runda;
+const cursaActuala = nextRace.value.meetingContext.nr_runda;
 
 useHead({
   title: `Program ${nextRace.value.seasonContext.seasonYear}`
