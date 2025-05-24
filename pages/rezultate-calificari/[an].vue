@@ -104,7 +104,7 @@ const getCurrentRound = async () => {
       console.error("Eroare la getCurrentRound:", error.value)
       return 0
     }
-    let nr_runda = data.value?.meetingContext.nr_runda
+    let nr_runda = data.value?.meetingContext.nr_runda + 1
     if (!nr_runda) return 0
     while (nr_runda > 0) {
       const { data: checkErgast, error: checkError } = await useFetch(
